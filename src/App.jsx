@@ -116,7 +116,7 @@ const App = () => {
       tech: ["React", "Node.js", "MongoDB", "Express"],
       icon: <Globe className="w-6 h-6" />,
       github: "https://github.com/Atharv42/PlaceME",
-      impact: "500+ users"
+      impact: "Streamlined placement process"
     },
     {
       title: "Tetris Arcade",
