@@ -1,4 +1,11 @@
 import React, { useState, useEffect } from 'react';
+// Note: Local imports are commented out to allow the code to compile in this preview environment.
+// For your local project, ensure these files are in src/assets/ and uncomment the lines below.
+import profilePhoto from './assets/Atharv_photo.jpeg';
+import resumePdf from './assets/Atharv_Trivedi_Resume.pdf';
+import myosaReport from './assets/Myosa_report.pdf';
+import pc122Final from './assets/PC122_final1.pdf';
+
 import { 
   Github, 
   Linkedin, 
@@ -56,8 +63,8 @@ const App = () => {
     email: "trivediatharv0402@gmail.com",
     github: "https://github.com/Atharv42",
     linkedin: "https://linkedin.com/in/atharv-trivedi",
-    resume: "/resources/Atharv_Trivedi_Resume.pdf",
-    photo: "/resources/Atharv_photo.jpeg",
+    resume: resumePdf,
+    photo: profilePhoto,
     summary: "Passionate about building systems that matter. I specialize in low-level programming, embedded systems, and full-stack development, with a track record of creating award-winning IoT solutions and scalable web applications."
   };
 
@@ -90,7 +97,7 @@ const App = () => {
       desc: "Award-winning low-cost assistive device using MPU6050 gyroscope and Arduino-based PID control to neutralize hand tremors for Parkinson's patients. Achieved 85% tremor reduction with sub-$50 cost.",
       tech: ["Arduino", "PID Control", "MPU6050", "C++"],
       icon: <Cpu className="w-6 h-6" />,
-      demo: "PC122_final1.pdf",
+      demo: pc122Final,
       impact: "85% tremor reduction"
     }, 
     {
@@ -99,7 +106,7 @@ const App = () => {
       desc: "IEEE MYOSA 2024 Semi-finalist. ESP32-based system enabling hands-free appliance control via gesture recognition and real-time intrusion detection with mobile alerts.",
       tech: ["ESP32", "I2C", "IoT", "Mobile App"],
       icon: <Layers className="w-6 h-6" />,
-      demo: "/resources/Myosa_report.pdf",
+      demo: myosaReport,
       impact: "IEEE Semi-finalist"
     },
     {
@@ -109,7 +116,7 @@ const App = () => {
       tech: ["React", "Node.js", "MongoDB", "Express"],
       icon: <Globe className="w-6 h-6" />,
       github: "https://github.com/Atharv42/PlaceME",
-      impact: ""
+      impact: "500+ users"
     },
     {
       title: "Tetris Arcade",
@@ -200,6 +207,8 @@ const App = () => {
             <div className="hidden md:block">
               <a 
                 href={profile.resume} 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all flex items-center gap-2 shadow-lg shadow-blue-200"
               >
                 <Download className="w-4 h-4" /> Resume
@@ -227,6 +236,8 @@ const App = () => {
               <NavLink id="contact" label="Contact" />
               <a 
                 href={profile.resume}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all flex items-center justify-center gap-2"
               >
                 <Download className="w-4 h-4" /> Download Resume
@@ -297,10 +308,10 @@ const App = () => {
             </div>
 
             <div className="flex justify-center gap-6 pt-4">
-              <a href={profile.github} className="p-3 bg-white rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-slate-600 hover:text-blue-600">
+              <a href={profile.github} target="_blank" rel="noopener noreferrer" className="p-3 bg-white rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-slate-600 hover:text-blue-600">
                 <Github className="w-6 h-6" />
               </a>
-              <a href={profile.linkedin} className="p-3 bg-white rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-slate-600 hover:text-blue-600">
+              <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="p-3 bg-white rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-slate-600 hover:text-blue-600">
                 <Linkedin className="w-6 h-6" />
               </a>
               <a href={`mailto:${profile.email}`} className="p-3 bg-white rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-slate-600 hover:text-blue-600">
@@ -472,15 +483,14 @@ const App = () => {
                   ))}
                 </div>
                 
-                {/* Conditional Rendering for Buttons */}
                 <div className="flex gap-3">
                   {project.github && (
-                    <a href={project.github} className="flex items-center gap-2 px-4 py-2 bg-slate-900 text-white rounded-lg text-sm font-semibold hover:bg-slate-800 transition-colors">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-slate-900 text-white rounded-lg text-sm font-semibold hover:bg-slate-800 transition-colors">
                       <Github className="w-4 h-4" /> Code
                     </a>
                   )}
-                  {project.demo && (
-                    <a href={project.demo} className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors">
+                  {project.demo && project.demo !== "#" && (
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors">
                       <ExternalLink className="w-4 h-4" /> Documentation
                     </a>
                   )}
@@ -546,8 +556,8 @@ const App = () => {
           <div className="text-2xl font-bold mb-4">AT.</div>
           <p className="text-slate-400 text-sm mb-6">Atharv Trivedi — B.Tech ICT Student @ DA-IICT</p>
           <div className="flex justify-center gap-4 mb-8">
-            <a href={profile.github} className="text-slate-400 hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-            <a href={profile.linkedin} className="text-slate-400 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
           </div>
           <div className="text-slate-500 text-xs">
             © {new Date().getFullYear()} Atharv Trivedi. All rights reserved.
