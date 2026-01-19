@@ -56,8 +56,8 @@ const App = () => {
     email: "trivediatharv0402@gmail.com",
     github: "https://github.com/Atharv42",
     linkedin: "https://linkedin.com/in/atharv-trivedi",
-    resume: "../public/Resources/Atharv_Trivedi_Resume.pdf",
-    photo: "../public/Resources/Atharv_photo.jpeg",
+    resume: "/resources/Atharv_Trivedi_Resume.pdf",
+    photo: "/resources/Atharv_photo.jpeg",
     summary: "Passionate about building systems that matter. I specialize in low-level programming, embedded systems, and full-stack development, with a track record of creating award-winning IoT solutions and scalable web applications."
   };
 
@@ -99,7 +99,7 @@ const App = () => {
       desc: "IEEE MYOSA 2024 Semi-finalist. ESP32-based system enabling hands-free appliance control via gesture recognition and real-time intrusion detection with mobile alerts.",
       tech: ["ESP32", "I2C", "IoT", "Mobile App"],
       icon: <Layers className="w-6 h-6" />,
-      demo: "../public/Resources/Myosa_report.pdf",
+      demo: "/resources/Myosa_report.pdf",
       impact: "IEEE Semi-finalist"
     },
     {
